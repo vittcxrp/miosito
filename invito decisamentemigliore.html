@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invito Segreto - 5IA</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(to right, #f4f4f4, #e8ecef);
+      color: #2c2c2c;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffffde;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2b6777;
+      font-size: 2.5em;
+    }
+
+    .subtitle {
+      font-size: 1.3em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .riddle {
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .riddle p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 1px solid #bbb;
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #2b6777;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e4c5a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .reveal {
+      font-size: 1.4em;
+      color: #227c70;
+      margin-top: 30px;
+      background: #eefaf7;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid #bfe7dd;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Invito Segreto dalla 5IA 🎉</h1>
+    <div class="subtitle">Indovina la data della nostra cena di fine anno!</div>
+
+    <p>Professore, prima di svelarvi tutti i dettagli... dovrete risolvere 3 enigmi!<br>
+    Solo così scoprirete <strong>quando</strong> e <strong>dove</strong> ci vedremo! 🕵️‍♂️</p>
+
+    <div class="riddle">
+      <p>🔢 <strong>Indizio 1 – Il giorno:</strong><br>
+      È un numero primo tra 10 e 12, e se lo ribalti resta uguale. È anche il doppio di 5.5</p>
+      <input type="text" id="riddle1" placeholder="Risposta numerica...">
+    </div>
+
+    <div class="riddle">
+      <p>📆 <strong>Indizio 2 – Il mese:</strong><br>
+      È il mese che dà il via all’estate e chiude la scuola. Inizia con “G”.</p>
+      <input type="text" id="riddle2" placeholder="Risposta (nome mese)...">
+    </div>
+
+    <div class="riddle">
+      <p>📅 <strong>Indizio 3 – Il giorno della settimana:</strong><br>
+      È il giorno in cui a metà settimana si comincia a sognare il weekend</p>
+      <input type="text" id="riddle3" placeholder="Risposta (giorno)...">
+    </div>
+
+    <button onclick="checkAnswers()">Scopri la Data e il Luogo!</button>
+
+    <div class="reveal hidden" id="result">
+      🎊 <strong>Complimenti!</strong> La nostra Cena Segreta sarà:<br><br>
+      📆 <strong>Mercoledì 11 Giugno 2025</strong> alle 20:30<br>
+      📍 <strong>Bob & Clare</strong> – Via Campi Flegrei, 72, 80078 Pozzuoli NA<br><br>
+      La Sua partecipazione sarebbe la ciliegina sul kernel, la query che completa il nostro database di ricordi 🥂🎓
+    </div>
+  </div>
+
+  <footer>
+    Creato con ❤️
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      const r1 = document.getElementById('riddle1').value.trim();
+      const r2 = document.getElementById('riddle2').value.trim().toLowerCase();
+      const r3 = document.getElementById('riddle3').value.trim().toLowerCase();
+
+      if (r1 === "11" && (r2 === "giugno") && (r3 === "mercoledì" || r3 === "mercoledi")) {
+        document.getElementById('result').classList.remove('hidden');
+      } else {
+        alert("Ops! Uno o più indizi sono sbagliati. Riprova con calma!");
+      }
+    }
+  </script>
+</body>
+</html>
